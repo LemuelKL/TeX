@@ -1,0 +1,100 @@
+\documentclass{assignment}
+
+\newcommand{\hwname}{Alan Turing}
+\newcommand{\hwemail}{19120623}
+\newcommand{\hwtype}{Assignment}
+\newcommand{\hwnum}{5}
+\newcommand{\hwclass}{MATH1853 Part IV}
+\newcommand{\hwlecture}{}
+\newcommand{\hwsection}{}
+
+\usepackage{amsmath}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{amstext} % for \text macro
+\usepackage{array}   % for \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
+
+\begin{document}
+\maketitle
+
+\question
+Since $N(1,4)$, then $\mu=1$ and $\sigma=2$.
+\begin{alphaparts}
+\questionpart
+$Z< \dfrac{3-1}{2}=1$, and find from the table that
+$$P(X<3)=P(Z<1)=\phi(1)\approx0.8413$$
+\questionpart
+$Z\leq \dfrac{1.5-1}{2}=0.25$, and find from the table that
+$$P(X\leq1.5)=P(Z\leq0.25)=\phi(0.25)\approx0.5987$$
+\questionpart
+$$P(1.5<X<3)=P(1.5\leq X<3)=P(X<3)-P(X<1.5)\approx0.8413-0.5987=0.2426$$
+\end{alphaparts}
+
+\question
+$$P(|Z|\leq k)=P(-k \leq Z \leq k)=0.85$$
+and
+$$P(Z\leq -k)=\dfrac{1-0.85}{2}=0.075$$
+and
+$$P(Z\leq k)=0.85+0.075=0.925$$
+from the table
+$$k\approx1.4$$
+
+\question
+\begin{alphaparts}
+\questionpart
+$$P(X=x)={n \choose x}p^n(1-p)^{n-x}$$
+where $n=100$ and $p=0.1$.
+
+$$
+\begin{aligned}
+P(7\leq X < 11)&=P(X=7)+P(X=8)+P(X=9)+P(X=10)\\
+&=0.08889524636812617+
+0.11482302655882966+
+0.13041627707916453+
+0.13186534682448858\\
+&=0.46599989683
+\end{aligned}
+$$
+
+\questionpart
+$\mu=np=100\cdot 0.1=10$\\
+$\sigma^2=np(1-p)=10(1-0.1)=9$, and hence $\sigma=3$\\
+So: $N(10,9)$
+\questionpart
+Apply Continuity Correction:
+$$P_{discrete}(7\leq X<11)=P_{continuous}(6.5<X<10.5)$$
+
+For $P(X<6.5)$, $Z<\dfrac{6.5-10}{3}=-1.1666$, and find from the table that
+$$P(X<6.5)=P(Z< -1.1666)=\phi(-1.1666)\approx0.1210$$
+
+For $P(X<10.5)$, $Z<\dfrac{10.5-10}{3}=0.1666$, and find from the table that
+$$P(X<10.5)=P(Z<0.1666)=\phi(0.1666)\approx0.5675$$
+
+Finally
+$$P(6.5<X<10.5)=P(X<10.5)-P(X<6.5)=0.5675-0.1210=0.4465
+$$
+
+\end{alphaparts}
+
+
+\question
+
+Estimate $p'=\dfrac{310}{10000}=0.031$\\
+By C.L.T., 
+$$\bar{X}_n=p'$$
+and since sample size is greater than 30, 
+$$\bar{X}_n\approx N(p,p(1-p)/n)$$
+then
+$$\dfrac{\bar{X}_n -p}{\sqrt{p(1-p)/n}}\approx Z$$
+$$\dfrac{p' -p}{\sqrt{p(1-p)/n}}\approx Z$$
+
+$$P(|Z|<k)=0.9$$
+$$P(Z<k)=\dfrac{1+0.9}{2}=0.95$$
+$$k=1.645$$
+
+finally the Confidence Interval:
+$$\left[p'-Z_{\alpha/2}\sqrt{\dfrac{p'(1-p')}{n}}, p+Z_{\alpha/2}\sqrt{\dfrac{p'(1-p')}{n}}\right]$$
+$$\left[0.031-1.645\times \sqrt{\dfrac{0.031\times0.969}{10000}},0.031+1.645\times \sqrt{\dfrac{0.031\times0.969}{10000}}\right]$$
+$$[0.02814, 0.03385]$$
+\end{document}
